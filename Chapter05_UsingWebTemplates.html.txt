@@ -1,0 +1,5 @@
+{% if page.title contains “Custom”%}
+    <h3>Hello from Custom Portal</h3>
+{% else %}
+    <h3>Hello world.</h3>
+{% endif %}

@@ -1,0 +1,51 @@
+<div class="container">
+<p>Request Params: {{request.params.id}}</p>
+<p>
+    {% if user%}
+        Greetings {{user.fullname}}
+    {% else %}
+        Greetings Anonymous User!
+    {% endif %}
+</p>
+
+{% assign sbmaEvents = entities['sbma_event'][request.params.id] %}
+
+<p>
+<table class="table table-hover">
+    <th scope="col">Field</th><th scope="col">Value</th>
+    <Tr class="table-primary">
+        <td>Event Code: </td><td>{{sbmaEvents.sbma_eventcode}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Event Title: </td><td>{{sbmaEvents.sbma_name}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Event Status: </td><td>{{sbmaEvents.sbma_eventstatus.Label}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Ticket Price: </td><td>$ {{sbmaEvents.sbma_ticketprice | round: 2}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Start Date: </td><td>{{sbmaEvents.sbma_startdate | date_add_hours:10}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>End Date: </td><td>{{sbmaEvents.sbma_enddate | date_add_hours:10}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Registration Start Date: </td><td>{{sbmaEvents.sbma_registrationstartdate | date_add_hours:10}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Registration End Date: </td><td>{{sbmaEvents.sbma_registrationenddate | date_add_hours:10}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Event Capacity: </td><td>{{sbmaEvents.sbma_eventcapacity}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Event Contact: </td><td>{{sbmaEvents.sbma_ownedcontactid.Name}}</td>
+    </Tr>
+    <Tr class="table-primary">
+        <td>Venue: </td><td>{{sbmaEvents.sbma_eventvenue.Name}}</td>
+    </Tr>
+</table>
+</div>
+</p>

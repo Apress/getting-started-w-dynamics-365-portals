@@ -1,0 +1,11 @@
+{% assign personType = “Hobbit” %}
+{% case personName %}
+{% when “Hobbit” %}
+This is a Hobbit
+{% when “Wizard” %}
+This is a Wizard
+{% when “Man” %}
+This is a Man
+{% else %}
+This is an Ork.
+{% endcase %}

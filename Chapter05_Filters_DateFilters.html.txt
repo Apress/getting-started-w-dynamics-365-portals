@@ -1,0 +1,24 @@
+{% assign string_val1 = "Hello Dynamics 365 Portals" %}
+<center><h2><b>{{string_val1}}</b></h2></center>
+
+<center><h2><b>Page titiel is: {{ page.title }}</b></h2></center>
+<br>
+<center><h3>Date Filters</h3></center>
+{% assign string_val2 = "Now Date: " %}
+<center><h4><b>{{string_val2}} {{now | date : 'g'}}</b></h4></center>
+<center><h4><b>{{'Now Date (Formatted) '}} {{now | date : 'MMMM dd, yyyy'}}</b></h4></center>
+
+<br>
+<center><h4><b>{{'Now: '}} {{now | date : 'g'}}</b></h4></center>
+<center><h4><b>{{'Add 1 day to Now: '}} {{now | date_add_days : 1}}</b></h4></center>
+<center><h4><b>{{'Minus three and half days: '}} {{now | date_add_days : -3.5}}</b></h4></center>
+
+<br>
+<center><h4><b>{{'Now: '}} {{now | date : 'g'}}</b></h4></center>
+<center><h4><b>{{'Add 1 Month to Now: '}} {{now | date_add_months : 1}}</b></h4></center>
+<center><h4><b>{{'Minus three Months: '}} {{now | date_add_months : -3}}</b></h4></center>
+
+<br>
+<center><h4><b>{{'Now: '}} {{now | date : 'g'}}</b></h4></center>
+<center><h4><b>{{'Format date to ISO 8601: '}} {{now | date_to_iso8601}}</b></h4></center>
+<center><h4><b>{{'Format date to RFS 822: '}} {{now | date_to_rfc822}}</b></h4></center>

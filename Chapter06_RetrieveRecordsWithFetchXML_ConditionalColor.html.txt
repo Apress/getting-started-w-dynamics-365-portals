@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="page-heading">
+    {% include 'breadcrumbs' %}
+  </div>
+  {% include 'page_header' %}
+  {% include 'page_copy' %}
+  {% fetchxml eventRegstrations %}
+  <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+    <entity name="sbma_eventregistration">
+      <attribute name="sbma_name" />
+      <attribute name="sbma_registrationstatus" />
+      <attribute name="sbma_paymentoption" />
+      <attribute name="sbma_membercontactid" />
+      <attribute name="sbma_eventid" />
+      <attribute name="sbma_eventregistrationid" />
+      <order attribute="sbma_name" descending="false" />
+    </entity>
+  </fetch>
+  {% endfetchxml %}
+
+  <table class="table table-hover">
+    <tr>
+        <th scope="col">Account Name</th>
+        <th scope="col">Event</th>
+        <th scope="col">Member Contact</th>
+        <th scope="col">Payment Option</th>
+        <th scope="col">Registration Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for fetchResult in eventRegstrations.results.entities %}
+        <tr>
+            <td>{{fetchResult.sbma_name}}</td>
+            <td>{{fetchResult.sbma_eventid.Name}}</td>
+            <td>{{fetchResult.sbma_membercontactid.Name}}</td>
+            <td>{{fetchResult.sbma_paymentoption.Label}}</td>
+            {%case fetchResult.sbma_registrationstatus.Label %}
+            {% when "Paid" %}
+              <td bgcolor="#99FF99">
+{{fetchResult.sbma_registrationstatus.Label}}</td>
+            {% when "Pending Payment" %}
+              <td bgcolor="#FF9999">
+{{fetchResult.sbma_registrationstatus.Label}}</td>
+            {% else %}
+              <td bgcolor="#FFCC99">
+{{fetchResult.sbma_registrationstatus.Label}}</td>
+            {% endcase %}
+
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>

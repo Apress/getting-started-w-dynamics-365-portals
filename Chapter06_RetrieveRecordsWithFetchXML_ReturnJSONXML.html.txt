@@ -1,0 +1,30 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="sbma_eventregistration">
+    <attribute name="sbma_name" />
+    <attribute name="sbma_registrationstatus" />
+    <attribute name="sbma_paymentoption" />
+    <attribute name="sbma_membercontactid" />
+    <attribute name="sbma_eventid" />
+    <attribute name="sbma_eventregistrationid" />
+    <order attribute="sbma_name" descending="false" />
+    <link-entity name="sbma_event" from="sbma_eventid" to="sbma_eventid" visible="false" link-type="outer" alias="events">
+      <attribute name="sbma_name" />
+      <attribute name="sbma_eventcode" />
+    </link-entity>
+  </entity>
+</fetch>
+{% endfetchxml %}
+
+{"EventRegistrations": 
+  [
+    {% for registrations in eventRegstrations.results.entities %}
+    {
+      "EventCode": "{{registrations['events.sbma_eventcode']}}",
+      "RegistrationCode":"{{registrations.sbma_name}}",
+      "PaymentOption":"{{registrations.sbma_paymentoption.Label}}",
+      "RegistrationStatus":"{{registrations.sbma_registrationstatus.Label}}"
+    }
+    {% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  ]
+}

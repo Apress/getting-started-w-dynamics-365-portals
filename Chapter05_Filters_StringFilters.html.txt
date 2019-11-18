@@ -1,0 +1,20 @@
+{% assign string_val1 = "Hello Dynamics 365 Portals" %}
+<center><h2><b>{{string_val1}}</b></h2></center>
+
+<center><h2><b>Page title is: {{ page.title }}</b></h2></center>
+<br>
+<center><h3>String Filters</h3></center>
+{% assign string_val2 = "Append Filter: " %}
+<center><h4><b>{{string_val2 | append: 'This text is appended'}}</b></h4></center>
+
+<br>
+{% assign string_val2 = "Capitalizing : " %}
+<center><h4><b>{{string_val2 | capitalize }}</b></h4></center>
+
+<br>
+{% assign string_val2 = "DOWNCASE TEXT : " %}
+<center><h4><b>{{string_val2 | downcase }}</b></h4></center>
+
+<br>
+{% assign string_val2 = "Replace text : " %}
+<center><h4><b>{{string_val2}} {{"Dynamics 365 portals" | replace: 'portals', 'Liquid Templates' }}</b></h4></center>

@@ -1,0 +1,7 @@
+<br>
+<h3>Boolean</h3>
+{% assign bool_1 = true %}
+{% assign bool_2 = false %}
+{% if bool_1 %}
+    <h4>bool_1 is true</h4>
+{% endif %}

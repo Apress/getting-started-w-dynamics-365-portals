@@ -1,0 +1,9 @@
+{% assign string_val1 = "Hello Dynamics 365 Portals" %}
+<center><h2><b>{{string_val1}}</b></h2></center>
+
+<center><h2><b>Page title  is: {{ page.title }}</b></h2></center>
+
+{% assign sbmaEvent = entities.['sbma_event'] %}
+{% if sbmaEvent %}
+  <center><h3><b>Entity Logical Name:  {{ sbmaEvent.logical_name }} </b></h3></center>
+{% endif %}

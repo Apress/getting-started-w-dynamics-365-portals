@@ -1,0 +1,19 @@
+if (window.jQuery) {
+   (function ($) {
+      if (typeof (entityFormClientValidate) != 'undefined') {
+         var originalValidationFunction = entityFormClientValidate;
+         if (originalValidationFunction && typeof (originalValidationFunction) == "function") {
+            entityFormClientValidate = function() {
+               originalValidationFunction.apply(this, arguments);
+               var startDate = new Date($("#sbma_startdate").val());
+               var endDate = new Date($("#sbma_enddate").val());
+               if(startDate > endDate)
+               {
+                   alert("Start date cannot be greater than end date.");
+                   return;
+               }
+            };
+         }
+      }
+   }(window.jQuery));
+}

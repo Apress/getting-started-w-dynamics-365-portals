@@ -1,0 +1,6 @@
+<br>
+<h3>Numbers and Floats</h3>
+{% assign float_value = 9.56 %}
+<h4>{{float_value}}</h4>
+{% assign number_value = 120 %}
+<h4>{{number_value}}</h4>

@@ -1,0 +1,15 @@
+{% assign string_val1 = "Hello Dynamics 365 Portals" %}
+<center><h2><b>{{string_val1}}</b></h2></center>
+
+<br>
+<center><h3>Arrays</h3></center>
+{% assign fellowShip = "Frodo, Sam, Merry, Pippin, Arragon, Gandolf, Gimly, Legolas" | split: "," %}
+{% for member in fellowShip  %}
+  <center><br>{{ member }}</center>
+{% endfor %}
+<br>
+<center><h4>Access elements using index: Index 4 is - {{ fellowShip[4] }}</h4></center>
+
+{% if fellowShip.size > 0 %}
+  <center><h4>This array has {{ fellowShip.size }} elements.</h4></center>
+{% endif %}

@@ -1,0 +1,11 @@
+<center><h2><b>Page titiel is: {{ page.title }}</b></h2></center>
+
+{% for child in page.children %}
+{% if forloop.first %}
+<center><h4><b>Child Page Title: {{ child.title }}</b></h4></center>
+<center><h4><b>This is the first child page!</b></h4></center>
+{% else %}
+<center><h4><b>Child Page Title: {{ child.title }}</b></h4></center>
+<center><h4><b>This is child page number {{ forloop.index }}.</b></h4></center>
+{% endif %}
+{% endfor %}

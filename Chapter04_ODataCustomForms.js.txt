@@ -1,0 +1,58 @@
+<div style="text-align:right; width:100%; padding:0;">
+<a href="#" class="btn btn-info">Create New event</a>
+</div>
+<div class="row" id="list" style="margin: 0px">
+  <ul class="thumbnails" id="events">
+     <li>&nbsp;</li>
+  </ul>
+</div>
+
+<div class="overley" id="loading">
+   <div class="content">
+      <div>Loading...</div>
+   </div>
+   <p>
+     <script>
+     //<![CDATA[
+      $(document).ready(function(){
+        $("#events").empty();
+
+        var odataurl = "https://sbmamembers.powerappsportals.com/_odata/SbmaEventSet";
+        $.ajax({
+           type: "GET",
+           url: odataurl,
+           datatype: 'json'
+       }).done(function(json){
+
+       var eventsJson = json.value;
+
+       $.each(eventsJson, function(index, sbmaevent){
+$("#events").append("<div class='float-left panel panel-info'><div class='panel-heading'><h3 class='panel-title'>"+sbmaevent.sbma_name+"</h3></div><div class='panel-body'><a id='evtdetails' href='#'class='btn btn-primary'>"+sbmaevent.sbma_eventcode+"</a><br><b>Start Date: </b>"+$.date(sbmaevent.sbma_startdate) +"<br><b>End Date: </b>"+$.date(sbmaevent.sbma_enddate)+"</div></div>")
+        })
+       $("#evtdetails").click(function(){
+          alert("Loading event details");});
+     }).always(function() {
+     $("#loading").fadeOut();
+   })
+  });
+
+  $.date=(function(dateobject){
+  var d = new Date(dateobject);
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+    var year = d.getFullYear();
+                        
+    if (day < 10) {
+       day = "0" + day;
+    }
+    if (month < 10) {
+       month = "0" + month;
+    }
+    var date = day + "/" + month + "/" + year;
+     return date;
+   });
+                
+ //]]>
+    </script>
+ </p>
+</div>

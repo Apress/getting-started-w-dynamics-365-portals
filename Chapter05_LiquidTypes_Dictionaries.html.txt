@@ -1,0 +1,7 @@
+<br>
+<center><h3>Dictionary</h3></center>
+{% assign eventList = entities['sbma_event'] %}
+
+{% for item in eventList %}
+  <br>{{ item }}
+{% endfor %}

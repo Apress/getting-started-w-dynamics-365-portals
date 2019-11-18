@@ -1,0 +1,6 @@
+{% assign string_val1 = "Hello Dynamics 365 Portals" %}
+<h2><b>{{string_val1}}</b></h2>
+
+<br>
+{% assign string_val1 = 'Single quotes for liquid strings' %}
+<h3><b>{{string_val1}}</b></h3>

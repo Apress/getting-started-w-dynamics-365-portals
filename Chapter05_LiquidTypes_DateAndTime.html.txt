@@ -1,0 +1,6 @@
+<br>
+<center><h3>Date and Time</h3></center>
+{% assign NowDate = {now|date: 'g'} %}
+{% assign NowDateFormatted = {now|date: 'MMMM dd, yyyy'} %}
+<center><h4><b>{{NowDate}}</b></h4></center>
+<center><h4><b>{{NowDateFormatted}}</b></h4></center>

@@ -1,0 +1,20 @@
+{% assign string_val1 = "Hello Dynamics 365 Portals" %}
+<center><h2><b>{{string_val1}}</b></h2></center>
+
+<center><h2><b>Page title is: {{ page.title }}</b></h2></center>
+<br>
+<center><h3>Math Filters</h3></center>
+{% assign string_val2 = "Math operation (150 * 2 -5 / 3): " %}
+<center><h4><b>{{string_val2}} {{150 | time:2 | minus:5 | devided_by: 3}}</b></h4></center>
+
+<br>
+{% assign string_val2 = "Rounding 32.59 : " %}
+<center><h4><b>{{string_val2}} {{32.59 | ceil }}</b></h4></center>
+
+<br>
+{% assign string_val2 = "Floor 32.25 : " %}
+<center><h4><b>{{string_val2}} {{32.25 | floor }}</b></h4></center>
+
+<br>
+{% assign string_val2 = "Round 45.6578 : " %}
+<center><h4><b>{{string_val2}} {{45.6578 | round: 2}}</b></h4></center>

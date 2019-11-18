@@ -1,0 +1,3 @@
+{% unless eventsList.rating == “Good” %}
+Then the event is not good.
+{% endunless %}

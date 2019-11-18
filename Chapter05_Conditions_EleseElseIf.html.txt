@@ -1,0 +1,7 @@
+{% if contact.username == “JamesB” %}
+Hey James Bond!
+{% elsif contact.username == “administrator” %}
+Hey Administrator!
+{% else %}
+Hi Stranger!
+{% endif %}

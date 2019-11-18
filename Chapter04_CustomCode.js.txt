@@ -1,0 +1,10 @@
+$.urlParam = function(name){
+    var results = new RegExp('[/\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
+}
+$(document).ready(function(){
+   $("#btnregister").click(function(){
+       var eventId = $.urlParam('id');
+       window.location.href = '/upcomingevents/EventRegistration/?id='+eventId;
+   });
+});

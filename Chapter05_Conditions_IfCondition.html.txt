@@ -1,0 +1,3 @@
+{% if events.title == “Annual Dinner” %}
+<h3>Everyone will be there!</h3>
+{% endif %}
